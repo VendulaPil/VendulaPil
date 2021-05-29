@@ -1,0 +1,11 @@
+CREATE TEMPORARY TABLE CARGOAIR AS
+SELECT "cargo".*, "AirDat"."Country", "AirDat"."Latitude_Decimal_Degrees", "AirDat"."Longitude_Decimal_Degrees"
+FROM "cargo"
+LEFT JOIN "AirDat"
+ON "cargo"."AIRP_1" = "AirDat"."ICAO_Code";
+CREATE TABLE CARGOAIR_ALL AS
+SELECT CARGOAIR.*, "AirDat"."Country" AS "Country_2", "AirDat"."Latitude_Decimal_Degrees" AS "Latitude_Decimal_Degrees_2"
+, "AirDat"."Longitude_Decimal_Degrees" AS "Longitude_Decimal_Degrees_2"
+FROM CARGOAIR
+LEFT JOIN "AirDat"
+ON "CARGOAIR"."AIRP_2" = "AirDat"."ICAO_Code";
