@@ -1,0 +1,15 @@
+#how to concanate more cvs files from one directory into one file
+
+import os
+import glob
+import pandas as pd
+
+os.chdir('C://Users//vendy//Desktop//RAW DATA//CARGO_CSV//NEW_CARGO')
+extension = 'csv'
+all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
+
+#combines all files in the list
+combined_cargo = pd.concat([pd.read_csv(f) for f in all_filenames ])
+
+#export all files to csv
+combined_cargo.to_csv("combined_cargo.csv", index=False, encoding='utf-8'
