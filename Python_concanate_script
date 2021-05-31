@@ -4,7 +4,7 @@ import os
 import glob
 import pandas as pd
 
-os.chdir('C://Users//vendy//Desktop//RAW DATA//CARGO_CSV//NEW_CARGO')
+os.chdir('C://Users//vendy//my_derectory')
 extension = 'csv'
 all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
 
